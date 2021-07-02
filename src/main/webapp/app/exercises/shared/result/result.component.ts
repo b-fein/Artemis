@@ -236,6 +236,10 @@ export class ResultComponent implements OnInit, OnChanges {
             // Only show the 'preliminary' string for programming student participation results and if the buildAndTestAfterDueDate has not passed.
         }
 
+        if (!this.result!.resultString) {
+            return this.translate.instant('artemisApp.editor.buildSuccessful');
+        }
+
         const resultStringCompiledMessage = this.result!.resultString!.replace('0 of 0 passed', this.translate.instant('artemisApp.editor.buildSuccessful'));
 
         if (
